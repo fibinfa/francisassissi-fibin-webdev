@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widget Heading</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-brand pull-left ">
+            <a href="widget-list.html">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+        </div>
+        <div>
+            <a class="navbar-brand" href="#">
+                <span><strong>Widget Edit</strong></span>
+            </a>
+        </div>
+        <div class="navbar-brand pull-right">
+            <a href="widget-list.html">
+          <span class="glyphicon glyphicon-ok">
+          </span>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <form>
+        <div class="form-group">
+    <label for="widgetname">Name</label>
+    <input id="widgetname" type="text"
+           class="form-control"
+           placeholder="Widget Name"/>
+        </div>
+        <div class="form-group">
+    <label for="widgettext">Text</label>
+    <input id="widgettext" type="text"
+           class="form-control"
+           placeholder="Widget Text"/>
+        </div>
+        <div class="form-group">
+    <label for="size">Size</label>
+    <input id="size" type="number" min="0"
+           class="form-control"
+           placeholder="Widget Size"/>
+            </div>
+    <a class="btn btn-danger btn-block"
+       href="widget-list.html">Delete</a>
+    </form>
+</div>
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-brand pull-right">
+            <a href="profile.html">
+                <span class="glyphicon glyphicon-user"></span>
+            </a>
+
+        </div>
+    </div>
+</nav>
+
+</body>
+</html>
