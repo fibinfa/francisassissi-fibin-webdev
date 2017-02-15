@@ -53,9 +53,9 @@ a:hover{
     text-decoration: none;
 }
 
-.list-group-item{
-    border: 0px;
-}
+/*.list-group-item{*/
+    /*border: 0px;*/
+/*}*/
 .ffa-toolbar{
     position: absolute;
     right: 15px;

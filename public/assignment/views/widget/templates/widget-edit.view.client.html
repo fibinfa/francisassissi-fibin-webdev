@@ -1,0 +1,49 @@
+<nav class="navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-brand pull-left ffa-no-left-padding">
+            <a href="widget-list.html">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+        </div>
+        <div>
+            <a class="navbar-brand ffa-no-left-padding" href="#">
+                <span><strong>Widget Edit</strong></span>
+            </a>
+        </div>
+        <div class="navbar-brand pull-right">
+            <a href="widget-list.html" class="navbar-link">
+          <span class="glyphicon glyphicon-ok">
+          </span>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid ffa-add-bottom-padding">
+    <div class="alert alert-danger" ng-show="model.error">
+        {{model.error}}
+    </div>
+
+    <div class="alert alert-success" ng-show="model.message">
+        {{model.message}}
+    </div>
+    <div ng-include="model.getEditorTemplateUrl(model.widget.widgetType)"></div>
+
+    <a class="btn btn-primary btn-block"
+       ng-click="model.updateWidget(model.widget)">Update</a>
+
+    <a class="btn btn-danger btn-block"
+       ng-click="model.deleteWidget()">Delete</a>
+
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container-fluid">
+        <div class="navbar-brand pull-right">
+            <a href="profile.html">
+                <span class="glyphicon glyphicon-user"></span>
+            </a>
+
+        </div>
+    </div>
+</nav>

@@ -1,86 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="WebAppMaker">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Assignment Home Page</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/style.css" rel="stylesheet"/>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+
+    <script src="app.js"></script>
+    <script src="config.js"></script>
+
+    <!--controllers-->
+
+    <script src="views/user/controllers/login.controller.client.js"></script>
+    <script src="views/user/controllers/profile.controller.client.js"></script>
+    <script src="views/user/controllers/register.controller.client.js"></script>
+    <script src="views/website/controllers/website-list.controller.client.js"></script>
+    <script src="views/website/controllers/website-new.controller.client.js"></script>
+    <script src="views/website/controllers/website-edit.controller.client.js"></script>
+    <script src="views/page/controllers/page-list.controller.client.js"></script>
+    <script src="views/page/controllers/page-new.controller.client.js"></script>
+    <script src="views/page/controllers/page-edit.controller.client.js"></script>
+    <script src="views/widget/controllers/widget-list.controller.client.js"></script>
+    <script src="views/widget/controllers/widget-edit.controller.client.js"></script>
+    <script src="views/widget/controllers/widget-new.controller.client.js"></script>
+
+    <!--services-->
+
+    <script src="services/user.service.client.js"></script>
+    <script src="services/website.service.client.js"></script>
+    <script src="services/page.service.client.js"></script>
+    <script src="services/widget.service.client.js"></script>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
 
-<nav class=" navbar-default navbar-fixed-top">
-    <div class="row container-fluid">
-        <div class="col-xs-10 navbar-brand ">
-            <span><strong>Assignment Home Page</strong></span>
-        </div>
-    </div>
-</nav>
+<div ng-view></div>
 
-<div class="ffa-add-bottom-padding">
-<div class="ffa-add-padding">
-    <a href="login.html">Login Page</a>
-</div>
-
-
-<div class="ffa-add-padding">
-    <a href="register.html">Register</a>
-</div>
-
-<div class="ffa-add-padding">
-    <a href="profile.html">Profile</a>
-</div>
-
-<div class="ffa-add-padding">
-    <a href="page-edit.html">Page Edit</a>
-</div>
-
-
-<div class="ffa-add-padding">
-    <a href="page-list.html">Page List</a>
-</div>
-
-<div class="ffa-add-padding">
-    <a href="page-new.html">Page New</a>
-</div>
-
-
-<div class="ffa-add-padding">
-    <a href="website-edit.html">Edit Website</a>
-</div>
-
-<div class="ffa-add-padding">
-    <a href="website-list.html">Website List</a>
-</div>
-
-
-<div class="ffa-add-padding">
-    <a href="website-new.html">New Website</a>
-</div>
-
-<div class="ffa-add-padding">
-    <a href="widget-chooser.html">Widget Chooser</a>
-</div>
-
-
-<div class="ffa-add-padding">
-    <a href="widget-heading.html">Widget Heading</a>
-</div>
-
-<div class="ffa-add-padding">
-    <a href="widget-image.html">Widget Image</a>
-</div>
-
-
-<div class="ffa-add-padding">
-    <a href="widget-list.html">Widget List</a>
-</div>
-
-
-<div class="ffa-add-padding">
-    <a href="widget-youtube.html">Widget Youtube</a>
-</div>
-
-</div>
 </body>
 </html>
