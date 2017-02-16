@@ -9,7 +9,6 @@
         vm.websiteId=$routeParams.wid;
         vm.createPage = createPage;
         function init() {
-            // vm.page = PageService.findPageById(vm.pageId);
             vm.pages = PageService.findPageByWebsiteId(vm.websiteId);
         }
         init();
