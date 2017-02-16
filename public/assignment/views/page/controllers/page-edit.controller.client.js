@@ -12,6 +12,7 @@
         vm.updatePage=updatePage;
         function init() {
             vm.page = PageService.findPageById(vm.pageId);
+            vm.pages = PageService.findPageByWebsiteId(vm.websiteId);
         }
         init();
 
