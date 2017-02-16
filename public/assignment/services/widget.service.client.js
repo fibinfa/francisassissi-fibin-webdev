@@ -68,8 +68,9 @@
                         widget.width = newWidget.width;
                         widget.url = newWidget.url;
                     }
+                    return widget;
                 }
-                return widget;
+
             }
             return null;
         }

@@ -23,6 +23,7 @@
             else{
                 vm.message="Website succesfully updated";
             }
+            $location.url("/user/"+vm.userId+"/website");
         };
 
         function deleteWebsite () {

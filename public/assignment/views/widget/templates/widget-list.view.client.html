@@ -2,7 +2,7 @@
     <div class="row container-fluid">
         <div  class="col-xs-10">
             <div class="navbar-brand pull-left ffa-no-left-padding">
-                <a href="page-list.html">
+                <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
             </div>
@@ -23,7 +23,7 @@
     </div>
 </nav>
 
-<div class="container-fluid">
+<div class="container-fluid ffa-add-bottom-padding">
 
     <div ng-repeat="widget in model.widgets">
         <div class="ffa-toolbar">
@@ -42,13 +42,13 @@
     <div class="row container-fluid">
         <div  class="col-xs-10">
             <div class="navbar-brand pull-left no-left-margin">
-                <a href="#">
+                <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">
                     <span class="glyphicon glyphicon-play"></span>
                 </a>
 
             </div>
             <div class="navbar-brand ">
-                <a href="#">
+                <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">
                     <span class="glyphicon glyphicon-eye-open"></span>
                 </a>
 
@@ -57,7 +57,7 @@
 
         <div class="col-xs-2">
             <div class="navbar-brand pull-right ">
-                <a href="profile.html">
+                <a href="#/user/{{model.userId}}">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
 

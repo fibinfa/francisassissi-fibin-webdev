@@ -1,7 +1,7 @@
 (function(){
     angular
         .module("WebAppMaker")
-        .controller("PageEditController", PageEditController);
+        .controller("EditPageController", PageEditController);
 
     function PageEditController($routeParams, $location, PageService) {
         var vm = this;
@@ -23,6 +23,7 @@
             else{
                 vm.message="Page succesfully updated";
             }
+            $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page");
         };
 
         function deletePage () {

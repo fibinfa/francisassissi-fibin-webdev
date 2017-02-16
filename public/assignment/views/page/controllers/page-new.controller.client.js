@@ -1,7 +1,7 @@
 (function(){
     angular
         .module("WebAppMaker")
-        .controller("PageNewController", PageNewController);
+        .controller("NewPageController", PageNewController);
 
     function PageNewController($routeParams, $location, PageService) {
         var vm = this;
@@ -9,14 +9,9 @@
         vm.websiteId=$routeParams.wid;
         vm.createPage = createPage;
 
-        // function init() {
-        //     vm.websites = WebsiteService.findAllWebsitesForUser(vm.userId);
-        // }
-        // init();
 
         function createPage (page) {
             PageService.createPage(vm.websiteId ,page);
-            //vm.websites = WebsiteService.findAllWebsitesForUser(vm.userId);
             $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page");
         };
     }

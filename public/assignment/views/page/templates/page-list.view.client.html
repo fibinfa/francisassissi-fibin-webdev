@@ -3,7 +3,7 @@
     <div class="row container-fluid">
         <div  class="col-xs-10">
             <div class="navbar-brand pull-left ffa-no-left-padding">
-                <a href="website-list.html">
+                <a href="#/user/{{model.userId}}/website">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
             </div>
@@ -23,7 +23,7 @@
     </div>
 </nav>
 
-<div class="container-fluid">
+<div class="container-fluid ffa-add-bottom-padding">
 
     <ul class="list-group">
         <li class="list-group-item">
@@ -39,7 +39,7 @@
         <li ng-repeat="page in model.pages" class="list-group-item">
             <div class="row">
                 <div class="col-xs-10">
-                    <a href="../../widget/templates/widget-list.view.client.html">
+                    <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}/widget">
                         <span> {{page.name}}</span></a>
                 </div>
                 <div class="col-xs-2">
@@ -59,7 +59,7 @@
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-brand pull-right">
-            <a href="views/user/profile.view.client.html">
+            <a href="#/user/{{model.userId}}">
                 <span class="glyphicon glyphicon-user"></span>
             </a>
 

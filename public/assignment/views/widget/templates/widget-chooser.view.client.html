@@ -1,7 +1,7 @@
 <nav class="navbar-default navbar-fixed-top bg-primary">
     <div class="container-fluid">
         <div class="navbar-brand pull-left ffa-no-left-padding">
-            <a href="widget-list.view.client.html">
+            <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">
                 <span class="glyphicon glyphicon-chevron-left"></span>
             </a>
         </div>
@@ -16,58 +16,44 @@
 
 
 <div class="container-fluid ffa-add-bottom-padding">
-    <!--<div class="ffa-add-padding">-->
-        <!--<a href="../../../widget-heading.html">Header</a>-->
-    <!--</div>-->
-    <!--<div class="ffa-add-padding">-->
-        <!--<a href="#">Label</a>-->
-    <!--</div>-->
-    <!--<div class="ffa-add-padding">-->
-        <!--<a href="#">HTML</a>-->
-    <!--</div>-->
-    <!--<div class="ffa-add-padding">-->
-        <!--<a href="#">Text Input</a>-->
-    <!--</div>-->
-    <!--<div class="ffa-add-padding">-->
-        <!--<a href="#">Link</a>-->
-    <!--</div>-->
-    <!--<div class="ffa-add-padding">-->
-        <!--<a href="#">Button</a>-->
-    <!--</div>-->
-    <!--<div class="ffa-add-padding">-->
-        <!--<a href="../../../widget-image.html">Image</a>-->
-    <!--</div>-->
-    <!--<div class="ffa-add-padding">-->
-        <!--<a href="../../../widget-youtube.html">YouTube</a>-->
-    <!--</div>-->
-    <!--<div class="ffa-add-padding">-->
-        <!--<a href="#">Data Table</a>-->
-    <!--</div>-->
-    <!--<div class="ffa-add-padding">-->
-        <!--<a href="#">Repeater</a>-->
-    <!--</div>-->
-    <ul class="list-group">
-        <li class="list-group-item">
-            <a ng-click="model.createWidget('HEADING')">HEADING</a>
-        </li>
-        <li class="list-group-item">
-            <a ng-click="model.createWidget('IMAGE')">IMAGE</a>
-        </li>
-        <li class="list-group-item">
-            <a ng-click="model.createWidget('HTML')">HTML</a>
-        </li>
-        <li class="list-group-item">
-            <a ng-click="model.createWidget('YOUTUBE')">YOUTUBE</a>
-        </li>
+    <div class="ffa-add-padding">
+        <a ng-click="model.createWidget('HEADING')">Header</a>
+    </div>
+    <div class="ffa-add-padding">
+        <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new">Label</a>
+    </div>
+    <div class="ffa-add-padding">
+        <a ng-click="model.createWidget('HTML')">HTML</a>
+    </div>
+    <div class="ffa-add-padding">
+        <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new">Text Input</a>
+    </div>
+    <div class="ffa-add-padding">
+        <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new">Link</a>
+    </div>
+    <div class="ffa-add-padding">
+        <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new">Button</a>
+    </div>
+    <div class="ffa-add-padding">
+        <a ng-click="model.createWidget('IMAGE')">Image</a>
+    </div>
+    <div class="ffa-add-padding">
+        <a ng-click="model.createWidget('YOUTUBE')">YouTube</a>
+    </div>
+    <div class="ffa-add-padding">
+        <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new">Data Table</a>
+    </div>
+    <div class="ffa-add-padding">
+        <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new">Repeater</a>
+    </div>
 
-    </ul>
 
 </div>
 
 <nav class="navbar navbar-default navbar-fixed-bottom">
     <div class="container-fluid">
         <div class="navbar-brand pull-right">
-            <a href="views/user/profile.view.client.html">
+            <a href="#/user/{{model.userId}}">
                 <span class="glyphicon glyphicon-user"></span>
             </a>
 
