@@ -1,5 +1,9 @@
 <div class="container">
     <h1>Register</h1>
+
+    <div class="alert alert-success" ng-show="model.message">
+        {{model.message}}
+    </div>
  <form>
         <div class="form-group">
                 <label for="username">Username</label>
@@ -27,7 +31,7 @@
         </div>
 
  </form>
-        <a ng-click="model.createUser(user)"
+        <a ng-click="model.register(user)"
            class="btn btn-primary btn-block">
                 Register
         </a>

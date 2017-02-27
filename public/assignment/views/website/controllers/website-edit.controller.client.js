@@ -10,26 +10,41 @@
         vm.deleteWebsite=deleteWebsite;
         vm.updateWebsite=updateWebsite;
         function init() {
-            vm.websites = WebsiteService.findWebsitesByUser(vm.userId);
-            vm.website = WebsiteService.findWebsiteById(vm.websiteId);
+            WebsiteService
+                .findWebsitesByUser(vm.userId)
+                .success(function (websites) {
+                    vm.websites = websites;
+                });
+
+            WebsiteService
+                .findWebsiteById(vm.websiteId)
+                .success(function (website) {
+                    vm.website = website;
+                });
         }
         init();
 
         function updateWebsite(newWebsite) {
-            var website=WebsiteService.updateWebsite(vm.websiteId,newWebsite);
-            if(website==null){
-                vm.error="Unable to update the website";
-            }
-            else{
-                vm.message="Website succesfully updated";
-            }
-            $location.url("/user/"+vm.userId+"/website");
+            var website=WebsiteService
+                .updateWebsite(vm.websiteId,newWebsite)
+                .success(function (website) {
+                    if(website==null){
+                        vm.error="Unable to update the website";
+                    }
+                    else{
+                        vm.message="Website succesfully updated";
+                    }
+                    $location.url("/user/"+vm.userId+"/website");
+                });
+
         };
 
         function deleteWebsite () {
-            WebsiteService.deleteWebsite(vm.websiteId);
-            //vm.websites = WebsiteService.findAllWebsitesForUser(vm.userId);
-            $location.url("/user/"+vm.userId+"/website");
+            WebsiteService
+                .deleteWebsite(vm.websiteId)
+                .success(function () {
+                    $location.url("/user/"+vm.userId+"/website");
+                });
         };
     }
 })();

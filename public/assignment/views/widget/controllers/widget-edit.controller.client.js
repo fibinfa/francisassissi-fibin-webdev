@@ -14,7 +14,11 @@
         vm.deleteWidget = deleteWidget;
 
         function init() {
-            vm.widget = WidgetService.findWidgetById(vm.widgetId);
+            WidgetService
+                .findWidgetById(vm.widgetId)
+                .success(function (widget) {
+                    vm.widget = widget;
+                });
         }
         init();
 
@@ -23,19 +27,26 @@
         }
 
         function updateWidget(newWidget){
-            var widget=WidgetService.updateWidget(vm.widgetId,newWidget);
-            if(widget==null){
-                vm.error="Unable to update the widget";
-            }
-            else{
-                vm.message="Widget succesfully updated";
-            }
-            $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");
+            WidgetService
+                .updateWidget(vm.widgetId,newWidget)
+                .success(function (widget) {
+                    if(widget==null){
+                        vm.error="Unable to update the widget";
+                    }
+                    else{
+                        vm.message="Widget succesfully updated";
+                    }
+                    $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");
+                });
+
         }
 
         function deleteWidget() {
-            WidgetService.deleteWidget(vm.widgetId);
-            $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");
+            WidgetService
+                .deleteWidget(vm.widgetId)
+                .success(function () {
+                    $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");
+                });
         }
     }
 })();

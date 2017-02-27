@@ -24,17 +24,18 @@
 </nav>
 
 <div class="container-fluid ffa-add-bottom-padding">
+    <div id="widget-list" wbdv-sortable="">
+        <div ng-repeat="widget in model.widgets">
+            <div class="ffa-toolbar">
+                <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+                    <span class="glyphicon glyphicon-cog"></span>
+                </a>
+                <span class="glyphicon glyphicon-align-justify"></span>
+            </div>
 
-    <div ng-repeat="widget in model.widgets">
-        <div class="ffa-toolbar">
-            <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
-                <span class="glyphicon glyphicon-cog"></span>
-            </a>
-            <span class="glyphicon glyphicon-align-justify"></span>
+            <ng-include src="model.getWidgetTemplateUrl(widget.widgetType)"></ng-include>
+
         </div>
-
-        <ng-include src="model.getWidgetTemplateUrl(widget.widgetType)"></ng-include>
-
     </div>
 </div>
 

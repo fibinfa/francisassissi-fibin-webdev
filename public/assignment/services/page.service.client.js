@@ -6,13 +6,7 @@
         .module("WebAppMaker")
         .factory("PageService", PageService);
 
-    function PageService() {
-        var pages =
-            [
-                { "_id": "321", "name": "Post 1", "websiteId": "456", "description": "Lorem" },
-                { "_id": "432", "name": "Post 2", "websiteId": "456", "description": "Lorem" },
-                { "_id": "543", "name": "Post 3", "websiteId": "456", "description": "Lorem" }
-            ];
+    function PageService($http) {
 
         var api = {
             "createPage": createPage,
@@ -24,47 +18,22 @@
         return api;
 
         function findPageById(pid) {
-            for(var p in pages) {
-                if(pages[p]._id === pid) {
-                    return angular.copy(pages[p]);
-                }
-            }
-            return null;
+            return $http.get("/api/page/"+pid);
         }
         function deletePage(pageId) {
-            for(var p in pages) {
-                if(pages[p]._id === pageId) {
-                    pages.splice(p, 1);
-                }
-            }
+            return $http.delete("/api/page/"+pageId);
         }
 
         function createPage(websiteId, page) {
-            page.websiteId = websiteId;
-            page._id = (new Date()).getTime().toString();
-            pages.push(page);
+            return $http.post("/api/website/"+websiteId+"/page",page);
         }
 
         function updatePage(pageId,newPage) {
-            for(var p in pages){
-                var page=pages[p];
-                if(page._id === pageId){
-                    page.name=newPage.name;
-                    page.description=newPage.description;
-                    return page;
-                }
-            }
-            return null;
+            return $http.put("/api/page/"+pageId, newPage);
         }
 
         function findPageByWebsiteId(websiteId) {
-            var pageList = [];
-            for(var p in pages) {
-                if(pages[p].websiteId === websiteId) {
-                    pageList.push(pages[p]);
-                }
-            }
-            return pageList;
+            return $http.get("/api/website/"+websiteId+"/page");
         }
     }
 })();
