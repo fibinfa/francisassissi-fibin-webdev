@@ -5,6 +5,14 @@ module.exports = function (app) {
     app.put("/api/widget/:widgetId", updateWidget);
     app.delete("/api/widget/:widgetId", deleteWidget);
 
+
+    var multer = require('multer'); // npm install multer --save
+    var upload = multer({ dest: __dirname+'/../../public/uploads' });
+
+
+    app.post ("/api/upload", upload.single('myFile'), uploadImage);
+
+
     var widgets = [
         { "_id": "123", "widgetType": "HEADING", "pageId": "321", "size": 2, "text": "GIZMODO"},
         { "_id": "234", "widgetType": "HEADING", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
@@ -16,6 +24,36 @@ module.exports = function (app) {
             "url": "https://youtu.be/AM2Ivdi9c4E" },
         { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"}
     ];
+
+    function uploadImage(req, res) {
+
+        var widgetId      = req.body.widgetId;
+        var websiteId     = req.body.websiteId;
+        var pageId        = req.body.pageId;
+        var userId        = req.body.userId;
+        var width         = req.body.width;
+        var name          = req.body.wigetname;
+        var text          = req.body.widgettext;
+
+        var myFile        = req.file;
+
+        var originalname  = myFile.originalname; // file name on user's computer
+        var filename      = myFile.filename;     // new file name in upload folder
+        var path          = myFile.path;         // full path of uploaded file
+        var destination   = myFile.destination;  // folder where file is saved to
+        var size          = myFile.size;
+        var mimetype      = myFile.mimetype;
+
+        var image = widgets.find(function (widget) {
+            return widget._id == widgetId;
+        })
+        image.width = width;
+        image.name = name;
+        image.text = text;
+        image.url = req.protocol+'://'+req.get('host')+'/uploads/'+filename;
+        // image.url = "http://localhost:3000/"+'uploads/'+filename;
+        res.redirect("/assignment/index.html#/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget");
+    }
 
 
     function createWidget(req, res) {

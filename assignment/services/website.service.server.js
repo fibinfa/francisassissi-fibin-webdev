@@ -15,6 +15,8 @@ module.exports = function (app) {
         { "_id": "789", "name": "Chess",       "developerId": "234", "description": "Lorem", created: new Date() }
     ];
 
+
+
     function findAllWebsitesForUser(req, res) {
         var userId = req.params.userId;
         var sites = [];

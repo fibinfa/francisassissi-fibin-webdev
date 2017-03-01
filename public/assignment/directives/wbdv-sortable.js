@@ -6,7 +6,8 @@
     function sortableDir() {
         function linkFunc(scope, element) {
             element.sortable({
-                axis: 'y'
+                axis: 'y',
+                handle: '.sortable-handle'
             });
         }
      return {
