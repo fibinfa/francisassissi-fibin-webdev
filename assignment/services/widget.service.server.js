@@ -55,7 +55,6 @@ module.exports = function (app) {
         res.redirect("/assignment/index.html#/user/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget");
     }
 
-
     function createWidget(req, res) {
         var pageId = req.params.pageId;
         var newWidget = req.body;
