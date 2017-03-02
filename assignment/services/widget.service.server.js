@@ -32,8 +32,8 @@ module.exports = function (app) {
         var pageId        = req.body.pageId;
         var userId        = req.body.userId;
         var width         = req.body.width;
-        var name          = req.body.wigetname;
-        var text          = req.body.widgettext;
+        var name          = req.body.name;
+        var text          = req.body.text;
 
         var myFile        = req.file;
 
