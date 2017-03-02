@@ -1,7 +1,7 @@
 (function () {
     angular
         .module('WebAppMaker')
-        .directive('wbdvSortable',sortableDir);
+        .directive('ffaSortable',sortableDir);
     
     function sortableDir() {
         function linkFunc(scope, element) {

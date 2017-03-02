@@ -25,7 +25,7 @@
         init();
 
         function updateWebsite(newWebsite) {
-            var website=WebsiteService
+            WebsiteService
                 .updateWebsite(vm.websiteId,newWebsite)
                 .success(function (website) {
                     if(website==null){

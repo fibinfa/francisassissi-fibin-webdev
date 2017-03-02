@@ -9,7 +9,7 @@
         vm.websiteId = $routeParams.wid;
         vm.pageId = $routeParams.pid;
         vm.widgetId = $routeParams.wgid;
-        vm.getEditorTemplateUrl = getEditorTemplateUrl;
+        // vm.getEditorTemplateUrl = getEditorTemplateUrl;
         vm.updateWidget = updateWidget;
         vm.deleteWidget = deleteWidget;
 
@@ -22,9 +22,9 @@
         }
         init();
 
-        function getEditorTemplateUrl(type) {
-            return 'views/widget/templates/editors/widget-'+type+'-editor.view.client.html';
-        }
+        // function getEditorTemplateUrl(type) {
+        //     return 'views/widget/templates/editors/widget-'+type+'-editor.view.client.html';
+        // }
 
         function updateWidget(newWidget){
             WidgetService
