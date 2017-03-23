@@ -8,6 +8,9 @@ module.exports =function() {
             process.env.MLAB_PORT + '/' +
             process.env.MLAB_APP_NAME;
     }
+    if(process.env.MONGODB_URI){
+        connectionString = process.env.MONGODB_URI
+    }
      mongoose.connect(connectionString);
 
      var userModel = require("./user/user.model.server")();
