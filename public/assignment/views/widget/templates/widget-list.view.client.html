@@ -34,6 +34,7 @@
             </div>
 
             <!--<ng-include src="model.getWidgetTemplateUrl(widget.widgetType)"></ng-include>-->
+
             <div ng-switch="widget.type">
                 <div ng-switch-when="HEADING">
                     <ng-include src="'views/widget/templates/widget-HEADING.view.client.html'"></ng-include>

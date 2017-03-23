@@ -13,6 +13,7 @@ module.exports = function () {
         findWidgetById: findWidgetById,
         updateWidget: updateWidget,
         deleteWidget: deleteWidget
+        //reorderWidget: reorderWidget
     };
 
     return api;
@@ -42,6 +43,7 @@ module.exports = function () {
                 }
             );
     }
+
 
 
     function createWidget(pageId, widget) {
@@ -76,6 +78,42 @@ module.exports = function () {
             {$set:newWidget}
         );
     }
+
+    // function reorderWidget(pageId, index1, index2) {
+    //     var deffered = q.defer();
+    //
+    //
+    //     pageModel
+    //         .findPageById(pageId)
+    //         .then(function (page) {
+    //             // console.log(page);
+    //
+    //             for (var i = index1; i < index2; i++) {
+    //                 var temp = page.widgets[i];
+    //                 page.widgets[i] = page.widgets[i + 1];
+    //                 page.widgets[i + 1] = temp;
+    //             }
+    //
+    //             for (var i = index1; i > index2; i--) {
+    //                 var temp = page.widgets[i];
+    //                 page.widgets[i] = page.widgets[i - 1];
+    //                 page.widgets[i - 1] = temp;
+    //             }
+    //             // console.log(page);
+    //             model.pageModel
+    //                 .update({_id: pageId}, {$set: {widgets: page.widgets}},
+    //                     function(err, updatedPage) {
+    //                         if(err){
+    //                             deffered.reject(err);
+    //                         } else{
+    //                             deffered.resolve();
+    //                         }
+    //
+    //                     });
+    //         });
+    //     return deffered.promise;
+    // }
+
 
 
 

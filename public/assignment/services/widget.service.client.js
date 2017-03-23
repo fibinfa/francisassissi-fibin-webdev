@@ -10,6 +10,7 @@
         this.updateWidget = updateWidget;
         this.deleteWidget = deleteWidget;
         this.createWidget = createWidget;
+        // this.reorderWidget = reorderWidget;
 
         function findWidgetsByPageId(pageId) {
             return $http.get("/api/page/"+pageId+"/widget");
@@ -30,5 +31,9 @@
         function createWidget(pageId,newWidget) {
             return $http.post("/api/page/"+pageId+"/widget",newWidget);
         }
+
+        // function reorderWidget(pageId, index1, index2) {
+        //     return $http.put("/page/" + pageId + "/widget?initial=" + index1 + "&final=" + index2);
+        // }
     }
 })();

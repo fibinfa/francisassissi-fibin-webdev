@@ -4,7 +4,7 @@ module.exports = function (app, model) {
     app.get("/api/widget/:widgetId", findWidgetById);
     app.put("/api/widget/:widgetId", updateWidget);
     app.delete("/api/widget/:widgetId", deleteWidget);
-    //app.put("/api/user/:uid/website/:wid/page/:pid/widget", updateWidgetPosition);
+    //app.put("/api/user/:uid/website/:wid/page/:pageId/widget?start=index1&end=index2", reorderWidget);
 
 
 
@@ -57,16 +57,13 @@ module.exports = function (app, model) {
     function createWidget(req, res) {
         var pageId = req.params.pageId;
         var newWidget = req.body;
-        console.log("hi");
         model.widgetModel
             .createWidget(pageId, newWidget)
             .then(
                 function (widget) {
-                    console.log("fibal"+widget);
                     res.json(widget);
                 },
                 function (error) {
-                    console.log(error);
                     res.sendStatus(400).send(error);
                 }
             );
@@ -111,38 +108,6 @@ module.exports = function (app, model) {
     function updateWidget(req, res) {
         var widgetId = req.params.widgetId;
         var newWidget = req.body;
-        // var widget = widgets.find(function (widget) {
-        //     return widget._id == widgetId;
-        // });
-        //
-        // if(widget)
-        // {
-        //     if(widget.widgetType == "HEADING"){
-        //         widget.name = newWidget.name;
-        //         widget.text = newWidget.text;
-        //         widget.size = newWidget.size;
-        //     }
-        //     else if(widget.widgetType == "IMAGE"){
-        //         widget.name = newWidget.name;
-        //         widget.text = newWidget.text;
-        //         widget.width = newWidget.width;
-        //         widget.url = newWidget.url;
-        //     }
-        //     else if(widget.widgetType == "HTML"){
-        //         widget.name = newWidget.name;
-        //         widget.text = newWidget.text;
-        //     }
-        //     else {
-        //         widget.name = newWidget.name;
-        //         widget.text = newWidget.text;
-        //         widget.width = newWidget.width;
-        //         widget.url = newWidget.url;
-        //     }
-        //     res.json(widget);
-        // }
-        // else {
-        //     res.json(null);
-        // }
 
         model.widgetModel
             .updateWidget(widgetId,newWidget)
@@ -174,27 +139,21 @@ module.exports = function (app, model) {
     }
 
 
-    function updateWidgetPosition(req, res) {
-        var start = req.query.start;
-        var stop = req.query.stop;
-        var pageId = req.params.pid;
 
-        model
-            .widgetModel
-            .reOrderWidget(pageId, start, stop)
-            .then(
-                function(status){
-                    res.sendStatus(200);
-                },
-                function(error){
-                    res.sendStatus(400).send(error);
-                }
-            );
+        // function reorderWidget(req, res) {
+        //     var pageId = req.params.pageId;
+        //     var index1 = parseInt(req.query.initial);
+        //     var index2 = parseInt(req.query.final);
+        //
+        //     model.widgetModel
+        //         .reorderWidget(pageId, index1, index2)
+        //         .then(function() {
+        //             res.sendStatus(200);
+        //         }, function(err) {
+        //             res.sendStatus(500).send(err);
+        //         });
+        // }
 
-        /*widgets.splice(stop, 0, widgets.splice(start, 1)[0]);
-         res.send(widgets);
-         console.log([start, stop]);*/
-    }
 
 
 
