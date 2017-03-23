@@ -18,11 +18,11 @@
 
         function createWidget(widgetType){
             var widget={};
-            widget.widgetType=widgetType;
+            widget.type=widgetType;
             WidgetService
                 .createWidget(vm.pageId,widget)
                 .success(function (widget) {
-                    widgetId = widget._id;
+                    var widgetId = widget._id;
                     $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget/"+widgetId);
                 });
         }
