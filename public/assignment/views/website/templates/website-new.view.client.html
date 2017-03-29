@@ -64,11 +64,18 @@
         </ul>
     </div>
     <div class="col-sm-8">
+        <div ng-show="websiteForm.$invalid && websiteForm.$submitted" class="alert alert-danger" >
+            There are errors in the form. Please correct the errors and submit again.
+        </div>
+        <form name="websiteForm" novalidate>
         <label for="website-name">Website Name</label>
         <input ng-model="website.name"
                placeholder="Website Name"
                class="form-control"
-               id="website-name"/>
+               name="websiteName" id="website-name" required/>
+            <div ng-show="websiteForm.$submitted && websiteForm.websiteName.$invalid" class="error">
+                Please enter name of the website
+            </div>
 
         <label for="website-description">Website Description</label>
         <textarea ng-model="website.description"
@@ -76,9 +83,11 @@
                   class="form-control"
                   id="website-description"></textarea>
         <br>
-        <a ng-click="model.createWebsite(website)" class="btn btn-primary btn-block">
+        <button ng-click="model.createWebsite(website)" type="submit"  class="btn btn-primary btn-block">
             Create
-        </a>
+        </button>
+
+        </form>
     </div>
 </div>
 

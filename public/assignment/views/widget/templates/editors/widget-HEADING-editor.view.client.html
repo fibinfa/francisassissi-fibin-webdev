@@ -1,11 +1,17 @@
 <h1>Header Editor</h1>
+<div ng-show="widgetForm.$invalid && widgetForm.$submitted" class="alert alert-danger" >
+    There are errors in the form. Please correct the errors and submit again.
+</div>
 
-<form>
+<form name="widgetForm" novalidate>
     <div class="form-group">
         <label for="widgetname">Name</label>
         <input ng-model="model.widget.name" id="widgetname" type="text"
-               class="form-control"
-               placeholder="Widget Name"/>
+               class="form-control" name="widgetname"
+               placeholder="Widget Name" required/>
+    </div>
+    <div ng-show="widgetForm.$submitted && widgetForm.widgetname.$invalid" class="error">
+        Please enter name of the widget
     </div>
     <div class="form-group">
         <label for="widgettext">Text</label>
@@ -19,5 +25,11 @@
                class="form-control"
                placeholder="Widget Size"/>
     </div>
+
+    <button type="submit" class="btn btn-primary btn-block"
+            ng-click="model.updateWidget(model.widget)">Update</button>
+
+    <a class="btn btn-danger btn-block"
+       ng-click="model.deleteWidget()">Delete</a>
 
 </form>

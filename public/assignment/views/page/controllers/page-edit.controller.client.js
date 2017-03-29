@@ -25,17 +25,19 @@
         init();
 
         function updatePage(newPage) {
-            PageService
-                .updatePage(vm.pageId,newPage)
-                .success(function (page) {
-                    if(page==null){
-                        vm.error="Unable to update the Page";
-                    }
-                    else{
-                        vm.message="Page succesfully updated";
-                    }
-                    $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page");
-                });
+            if(newPage!=undefined && newPage.name!=null) {
+                PageService
+                    .updatePage(vm.pageId, newPage)
+                    .success(function (page) {
+                        if (page == null) {
+                            vm.error = "Unable to update the Page";
+                        }
+                        else {
+                            vm.message = "Page succesfully updated";
+                        }
+                        $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page");
+                    });
+            }
 
         };
 

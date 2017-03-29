@@ -95,4 +95,12 @@ p{
     height: 100%;
 }
 
+.ng-submitted .ng-invalid, .ng-submitted .invalid{
+    border-color: red;
+}
+.error{
+    color: orangered;
+    margin-bottom: 5px;
+}
+
 

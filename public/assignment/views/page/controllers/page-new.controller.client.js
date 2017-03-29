@@ -18,12 +18,13 @@
         init();
 
         function createPage (page) {
-            PageService
-                .createPage(vm.websiteId ,page)
-                .success(function () {
-                    $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page");
-                });
-
+            if(page!=undefined && page.name!=null) {
+                PageService
+                    .createPage(vm.websiteId, page)
+                    .success(function () {
+                        $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page");
+                    });
+            }
         };
     }
 })();

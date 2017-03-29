@@ -26,18 +26,21 @@
         //     return 'views/widget/templates/editors/widget-'+type+'-editor.view.client.html';
         // }
 
-        function updateWidget(newWidget){
+        function updateWidget(newWidget) {
+            if (newWidget != undefined && newWidget.name != null) {
+
             WidgetService
-                .updateWidget(vm.widgetId,newWidget)
+                .updateWidget(vm.widgetId, newWidget)
                 .success(function (widget) {
-                    if(widget==null){
-                        vm.error="Unable to update the widget";
+                    if (widget == null) {
+                        vm.error = "Unable to update the widget";
                     }
-                    else{
-                        vm.message="Widget succesfully updated";
+                    else {
+                        vm.message = "Widget succesfully updated";
                     }
-                    $location.url("/user/"+vm.userId+"/website/"+vm.websiteId+"/page/"+vm.pageId+"/widget");
+                    $location.url("/user/" + vm.userId + "/website/" + vm.websiteId + "/page/" + vm.pageId + "/widget");
                 });
+        }
 
         }
 

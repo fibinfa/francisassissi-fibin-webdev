@@ -18,11 +18,13 @@
         init();
 
         function createWebsite (website) {
+            if(website!=undefined && website.name!=null){
             WebsiteService
                 .createWebsite(vm.userId, website)
                 .success(function () {
                     $location.url("/user/"+vm.userId+"/website");
                 });
+            }
         };
     }
 })();

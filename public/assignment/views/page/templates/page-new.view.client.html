@@ -65,19 +65,27 @@
         </ul>
     </div>
     <div class="col-sm-8">
+        <div ng-show="pageForm.$invalid && pageForm.$submitted" class="alert alert-danger" >
+            There are errors in the form. Please correct the errors and submit again.
+        </div>
+        <form name="pageForm" novalidate>
         <label for="pagename">Name</label>
-        <input ng-model="page.name" id="pagename" type="text"
+        <input ng-model="page.name" id="pagename" name="pagename" type="text"
                class="form-control"
-               placeholder="Page Name"/>
+               placeholder="Page Name" required/>
+            <div ng-show="pageForm.$submitted && pageForm.pagename.$invalid" class="error">
+                Please enter name of the page
+            </div>
 
         <label for="desc">Description</label>
         <input ng-model="page.description" id="desc" type="text"
                class="form-control"
                placeholder="Page Description"/>
         <br>
-        <a ng-click="model.createPage(page)" class="btn btn-primary btn-block">
+        <button type="submit" ng-click="model.createPage(page)" class="btn btn-primary btn-block">
             Create Page
-        </a>
+        </button>
+        </form>
     </div>
 </div>
 

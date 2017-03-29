@@ -25,6 +25,7 @@
         init();
 
         function updateWebsite(newWebsite) {
+            if(newWebsite!=undefined && newWebsite.name!=null){
             WebsiteService
                 .updateWebsite(vm.websiteId,newWebsite)
                 .success(function (website) {
@@ -36,6 +37,7 @@
                     }
                     $location.url("/user/"+vm.userId+"/website");
                 });
+            }
 
         };
 
