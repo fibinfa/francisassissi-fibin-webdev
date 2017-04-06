@@ -1,6 +1,4 @@
-/**
- * Created by fibin on 10-02-2017.
- */
+
 (function(){
     angular
         .module("WebAppMaker")
