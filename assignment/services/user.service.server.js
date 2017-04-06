@@ -35,7 +35,7 @@ module.exports = function (app, model) {
     var googleConfig = {
         clientID     : process.env.GOOGLE_CLIENT_ID,//"545546931359-9q1c3bb8ffsoabdohblumqe36ta3i3uv.apps.googleusercontent.com",//
         clientSecret : process.env.GOOGLE_CLIENT_SECRET,//"CURkgOn-HeKQpLkiaxxt-Qs5",//
-        callbackURL  : process.env.GOOGLE_CALLBACK_URL//"http://localhost:3000/auth/google/callback"//
+        callbackURL  : process.env.GOOGLE_CALLBACK_URL//"http://localhost:3000/auth/google/callback"//process.env.GOOGLE_CALLBACK_URL
     };
 
     passport.use(new GoogleStrategy(googleConfig, googleStrategy));

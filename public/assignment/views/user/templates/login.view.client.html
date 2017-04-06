@@ -13,7 +13,7 @@
         <input ng-model="user.username" id="username" name="username" type="text"
                class="form-control"
                placeholder="username" required/>
-         <div ng-show="loginForm.$submitted && loginForm.username.$invalid" class="error">
+         <div ng-show="loginForm.$submitted && loginForm.username.$invalid" class="ffa-error">
              Please enter a username
          </div>
 
@@ -21,7 +21,7 @@
         <input ng-model="user.password" id="password" name="password" type="password"
                class="form-control"
                placeholder="password" required/>
-         <div ng-show="loginForm.$submitted && loginForm.password.$invalid" class="error">
+         <div ng-show="loginForm.$submitted && loginForm.password.$invalid" class="ffa-error">
              Please enter a password
          </div>
          <br>

@@ -14,7 +14,7 @@
                 <input ng-model="user.username" type="text" class="form-control"
                        name="username" id="username" placeholder="username" required>
         </div>
-        <div ng-show="registerForm.$submitted && registerForm.username.$invalid" class="error">
+        <div ng-show="registerForm.$submitted && registerForm.username.$invalid" class="ffa-error">
             Please enter a username
         </div>
         <div class="form-group">
@@ -24,7 +24,7 @@
                        class="form-control"
                        name="password" id="password" placeholder="password" required>
         </div>
-        <div ng-show="registerForm.$submitted && registerForm.password.$invalid" class="error">
+        <div ng-show="registerForm.$submitted && registerForm.password.$invalid" class="ffa-error">
          Please enter a password
         </div>
         <div class="form-group">
@@ -34,10 +34,10 @@
                        type="password" class="form-control"
                        name="cpassword" id="cpassword" placeholder="verify password" required>
         </div>
-     <div ng-show="registerForm.$submitted && registerForm.cpassword.$invalid" class="error">
+     <div ng-show="registerForm.$submitted && registerForm.cpassword.$invalid" class="ffa-error">
          Please re-enter the password
      </div>
-     <div ng-show="registerForm.$submitted && registerForm.password.value != registerForm.cpassword.value" class="error">
+     <div ng-show="registerForm.$submitted && registerForm.password.value != registerForm.cpassword.value" class="ffa-error">
          Your password and confirmation-password do not match.
      </div>
          <div class="form-group">
@@ -55,7 +55,7 @@
                 <input ng-model="user.email" type="email" class="form-control"
                        name="email" id="email" placeholder="alice@wonderland.com">
         </div>
-     <div ng-show="registerForm.$submitted && registerForm.email.$invalid" class="error">
+     <div ng-show="registerForm.$submitted && registerForm.email.$invalid" class="ffa-error">
          Please enter a valid email id
      </div>
 

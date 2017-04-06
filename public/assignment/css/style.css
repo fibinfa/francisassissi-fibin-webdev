@@ -98,7 +98,7 @@ p{
 .ng-submitted .ng-invalid, .ng-submitted .invalid{
     border-color: red;
 }
-.error{
+.ffa-error{
     color: orangered;
     margin-bottom: 5px;
 }
