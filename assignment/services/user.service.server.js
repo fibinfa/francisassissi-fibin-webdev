@@ -33,9 +33,9 @@ module.exports = function (app, model) {
         }));
 
     var googleConfig = {
-        clientID     : process.env.GOOGLE_CLIENT_ID,//"545546931359-9q1c3bb8ffsoabdohblumqe36ta3i3uv.apps.googleusercontent.com",//
-        clientSecret : process.env.GOOGLE_CLIENT_SECRET,//"CURkgOn-HeKQpLkiaxxt-Qs5",//
-        callbackURL  : process.env.GOOGLE_CALLBACK_URL//"http://localhost:3000/auth/google/callback"//process.env.GOOGLE_CALLBACK_URL
+        clientID     : "545546931359-9q1c3bb8ffsoabdohblumqe36ta3i3uv.apps.googleusercontent.com",//process.env.GOOGLE_CLIENT_ID,
+        clientSecret : "CURkgOn-HeKQpLkiaxxt-Qs5",//process.env.GOOGLE_CLIENT_SECRET,
+        callbackURL  : "http://localhost:3000/auth/google/callback"//process.env.GOOGLE_CALLBACK_URL
     };
 
     passport.use(new GoogleStrategy(googleConfig, googleStrategy));
@@ -127,13 +127,16 @@ module.exports = function (app, model) {
 
     function localStrategy(username, password, done) {
         model.userModel
-            .findUserByCredentials(username, password)
+            .findUserByUsername(username)
             .then(
                 function(user) {
                     if (!user) {
                         return done(null, false);
                     }
-                    return done(null, user);
+                    if(bcrypt.compareSync(password, user.password)) {
+                        return done(null, user);
+                    }
+                    return done(null, false);
                 },
                 function(err) {
                     if (err) {
@@ -143,10 +146,9 @@ module.exports = function (app, model) {
             );
     }
 
-
     function createUser(req, res) {
         var newUser = req.body;
-        newUser.password = bcrypt.hashSync(user.password);
+        newUser.password = bcrypt.hashSync(newUser.password);
         model.userModel
             .createUser(newUser)
             .then(function(user) {
