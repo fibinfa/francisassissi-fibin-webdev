@@ -11,6 +11,7 @@ module.exports =function() {
     if(process.env.MONGODB_URI){
         connectionString = process.env.MONGODB_URI
     }
+    console.log(connectionString);
      mongoose.connect(connectionString);
 
      var userModel = require("./user/user.model.server")();

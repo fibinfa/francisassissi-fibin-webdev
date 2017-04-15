@@ -10,9 +10,10 @@ module.exports = function (app, model) {
 
     var multer = require('multer'); // npm install multer --save
     var upload = multer({ dest: __dirname+'/../../public/uploads' });
-
+    console.log({dest: __dirname});
 
     app.post ("/api/upload", upload.single('myFile'), uploadImage);
+
 
 
     function uploadImage(req, res) {

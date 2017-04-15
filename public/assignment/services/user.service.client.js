@@ -36,7 +36,7 @@
         function createUser(user) {
             return $http.post("/api/user",user);
         }
-        function updateUser(userId,newUser) {
+        function updateUser(newUser) {
             return $http.put("/api/user/", newUser);
         }
         
@@ -57,7 +57,7 @@
         }
 
         function deleteUser(userId) {
-            return $http.delete("/api/user/");
+            return $http.delete("/api/user/"+userId);
         }
 
     }
