@@ -179,3 +179,8 @@ video {
 	width: 100%;
 	min-width: 100%;
 }
+
+.ffa-center-image{
+	display: block;
+	margin: auto;
+}
